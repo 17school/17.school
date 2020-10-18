@@ -20,7 +20,6 @@
       class="m-auto w-full h-full flex flex-col justify-between md:justify-center p-6 md:max-w-lg"
     >
       <form ref="form" class="flex flex-col items-center" @submit.prevent="submitForm" name="signups" netlify>
-        <!-- Should be auto-injected by Netlify, but just in case -->
         <input type="hidden" name="form-name" value="signups">
 
         <div>
