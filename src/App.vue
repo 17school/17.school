@@ -19,7 +19,7 @@
     <div
       class="m-auto w-full h-full flex flex-col justify-between md:justify-center p-6 md:max-w-lg"
     >
-      <form ref="form" class="flex flex-col items-center" @submit.prevent="submitForm" data-netlify="true" method="post">
+      <form ref="form" class="flex flex-col items-center" @submit.prevent="submitForm" name="signups" netlify>
         <div>
           <img alt="17.school logo" src="./assets/17.svg" class="w-16 m-10" />
         </div>
