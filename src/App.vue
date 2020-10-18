@@ -14,10 +14,12 @@
         <p class="mt-4">Have you checked out our <a href="./blog" class="underline">./blog</a> yet?</p>
       </div>
     </div>
+
+
     <div
       class="m-auto w-full h-full flex flex-col justify-between md:justify-center p-6 md:max-w-lg"
     >
-      <form class="flex flex-col items-center">
+      <form ref="form" class="flex flex-col items-center" @submit.prevent="submitForm" data-netlify="true" method="post">
         <div>
           <img alt="17.school logo" src="./assets/17.svg" class="w-16 m-10" />
         </div>
@@ -29,16 +31,17 @@
 
         <div class="w-full mt-12">
           <input
+            name="email"
             type="email"
             placeholder="elon@spacex.com"
-            class="w-full placeholder-gray-100 gradient font-light pt-3 pb-3 pl-6 outline-none"
+            class="w-full placeholder-gray-100 gradient font-light pt-3 pb-3 pl-6 rounded-none border-0 outline-none"
           />
         </div>
 
         <div class="w-full mt-4">
           <select
             name="country"
-            class="w-full gradient font-light pt-3 pb-3 pl-6 outline-none"
+            class="w-full gradient font-light pt-3 pb-3 pl-6 rounded-none border-0 outline-none"
           >
             <option value="bh">Bahrain</option>
             <option value="sa">Saudi Arabia</option>
@@ -48,15 +51,15 @@
 
         <input
           type="submit"
-          value="Count me in"
+          value="Sign me up"
           class="clipped mt-4 w-full bg-gray-100 rounded-none border-0 uppercase pt-3 pb-3 text-black cursor-pointer"
         />
       </form>
 
       <div class="md:mt-20 flex flex-col">
-        <a href="/faq">./faq</a>
-        <a href="/blog">./blog</a>
-        <a href="/contact-us">./contact-us</a>
+        <!-- <a href="/faq">./faq</a> -->
+        <div><a href="/blog">./blog</a> <span class="text-gray-100">(soon)</span></div>
+        <a href="mailto:hello@17.school">./contact-us</a>
       </div>
     </div>
   </div>
@@ -67,11 +70,25 @@ export default {
   name: "App",
   data() {
     return {
-      modalVisible: true,
+      modalVisible: false,
     };
   },
   components: {},
-  methods: {},
+  methods: {
+    submitForm: function() {
+       const vm = this
+       const form = this.$refs.form
+       const params = new URLSearchParams(new FormData(form)).toString()
+
+       fetch(form.action, {
+         method: 'POST', 
+         body: params
+       }).then(data => {
+         console.log(data)
+         vm.modalVisible = true
+       })
+    }
+  },
 };
 </script>
 
