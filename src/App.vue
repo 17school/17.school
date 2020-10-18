@@ -4,6 +4,7 @@
       v-if="modalVisible"
       class="absolute w-full h-full left-0 top-0 z-10 flex justify-center items-center"
       style="background: rgba(0, 0, 0, 0.8)"
+      @click="modalVisible=false"
     >
       <div class="clipped bg-gray-100 text-black font-light p-6 m-6 max-w-sm">
         <p>
