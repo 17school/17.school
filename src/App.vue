@@ -1,19 +1,49 @@
 <template>
-  <div id="app" class="w-full h-full flex flex-col items-center justify-center">
-    <div>
-      <img alt="17.school logo" src="./assets/17.svg" class="w-16 m-10" />
-    </div>
+  <div
+    id="app"
+    class="m-auto w-full h-full flex flex-col justify-between md:justify-center p-6 md:max-w-lg"
+  >
+    <form class="flex flex-col items-center">
+      <div>
+        <img alt="17.school logo" src="./assets/17.svg" class="w-16 m-10" />
+      </div>
 
-    <form name="get-notified" method="post" data-netlify="true">
-      <div class="mt-4 flex flex-row">
+      <p>
+        We'll turn you into a developer in 6 months. Pay us nothing till you're
+        hired.
+      </p>
+
+      <div class="w-full mt-12">
         <input
           type="email"
-          class="bg-black border-0 outline-none placeholder-gray-600 pt-3 pl-8 pb-3 pr-8 text-gray-200 flex-1"
           placeholder="elon@spacex.com"
+          class="w-full placeholder-gray-100 gradient font-light pt-3 pb-3 pl-6 outline-none"
         />
-        <input type="submit" value="Notify me" class="bg-white pl-10 pr-10 ml-4 border-0 uppercase" />
       </div>
+
+      <div class="w-full mt-4">
+        <select
+          name="country"
+          class="w-full gradient font-light pt-3 pb-3 pl-6 outline-none"
+        >
+          <option value="bh">Bahrain</option>
+          <option value="sa">Saudi Arabia</option>
+          <option value="ae">UAE</option>
+        </select>
+      </div>
+
+      <input
+        type="submit"
+        value="Count me in"
+        class="mt-4 w-full bg-gray-100 rounded-none border-0 uppercase pt-3 pb-3 text-black cursor-pointer"
+      />
     </form>
+
+    <div class="md:mt-20 flex flex-col">
+      <a href="/faq">./faq</a>
+      <a href="/blog">./blog</a>
+      <a href="/contact-us">./contact-us</a>
+    </div>
   </div>
 </template>
 
@@ -21,13 +51,15 @@
 export default {
   name: "App",
   components: {},
-  methods: {
-  }
+  methods: {},
 };
 </script>
 
 <style>
-input[type=submit] {
+.gradient {
+  background: linear-gradient(90.95deg, #333333 0%, #1a1a1a 99.48%);
+}
+input[type="submit"] {
   clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
 }
 </style>

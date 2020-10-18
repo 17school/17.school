@@ -8,7 +8,22 @@ module.exports = {
   purge: [
   ],
   theme: {
-    extend: {}
+    fontFamily: {
+      display: ['Open Sans', 'sans-serif'],
+      body: ['Open Sans', 'sans-serif']
+    },
+    colors: {
+      black: '#000',
+      gray: {
+        500: '#ccc',
+        100: '#919191',
+      },
+    },
+    extend: {
+      fontSize: {
+        base: ['18px', '27px']
+      },
+    }
   },
   variants: {},
   plugins: []
